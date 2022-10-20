@@ -10,9 +10,12 @@
   </head>
 
   <!-- Entrega 1 - Grupal - 
-    Santiago Núñez Gómez
+    Abigail Ormeño
     Nicolas Silva Augustyniak
-    Carolina Astudillo
+    Leonardo Etchebarne
+    Rafael Velazquez
+    Andres Otero
+    Ruben De Brun
     -->
 
   <body class="bg-light">
@@ -37,20 +40,21 @@
               method=""
               class="needs-validation"
               novalidate
-              oninput='psw2.setCustomValidity(psw2.value != psw1.value ? "Las contraseñas no coinciden" : "")'
+              oninput='psw2.setCustomValidity(psw2.value != psw1.value ? "Debe ser igual a contraseña" : "")'
             >
               <div class="row g-3">
                 <!-- CAMPO NOMBRE -->
 
                 <div class="col-sm-6 form-group">
                   <label for="nombre" class="form-label">Nombre</label>
+
                   <input
                     type="text"
                     class="form-control"
                     id="nombre"
                     required
                   />
-                  <div class="invalid-feedback">Ingresa tu nombre</div>
+                  <div class="invalid-feedback">Debe ingresar un nombre</div>
                 </div>
 
                 <!-- CAMPO APELLIDO -->
@@ -62,7 +66,7 @@
                     id="apellido"
                     required
                   />
-                  <div class="invalid-feedback">Ingresa tu apellido</div>
+                  <div class="invalid-feedback">Debe ingresar un apellido</div>
                 </div>
 
                 <!-- CAMPO EMAIL -->
@@ -74,7 +78,7 @@
                     id="email"
                     required
                   />
-                  <div class="invalid-feedback">Ingresa tu e-mail</div>
+                  <div class="invalid-feedback">Debe ingresar un email</div>
                 </div>
 
                 <!-- CAMPO CONTRASEÑA -->
@@ -92,7 +96,7 @@
                     minlength="6"
                   />
                   <div class="invalid-feedback">
-                    La contraseña debe de tener un minimo de 6 caracteres
+                    Debe ingresar una contraseña de al menos 6 caracteres
                   </div>
                 </div>
 
@@ -110,29 +114,84 @@
                       required
                     />
                     <div class="invalid-feedback">
-                      Las contraseñas no coinciden
+                      Debe ser igual a contraseña
                     </div>
                   </div>
                 </div>
 
-                <!-- CHECKBOX -->
-                <div class="form-check form-group">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="terminos"
-                    required
-                  />
-                  <label class="form-check-label" for="terminos"
-                    >Acepto los términos y condiciones del servicio.</label
-                  >
-                  <div class="invalid-feedback">
-                    Debes aceptar los términos y condiciones.
+                <!-- TERMINOS -->
+                <div class="col-sm-12">
+                  <div class="d-flex align-items-center">
+                    <button
+                      type="button"
+                      class="btn btn-link ps-0"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalTerminos"
+                      id="btn"
+                    >
+                      Términos del servicio
+                    </button>
+                    <div id="invalidTerms" class="d-none">
+                      Debes aceptar los términos y condiciones.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- MODAL -->
+                <div
+                  class="modal fade"
+                  id="modalTerminos"
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5">
+                          Términos y condiciones del servicio.
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Repellendus quasi sapiente voluptatum deserunt?
+                          Deleniti, adipisci vitae in quaerat eius nemo optio?
+                          Quas at magni saepe cumque. Delectus perspiciatis
+                          omnis accusamus.
+                        </p>
+                      </div>
+
+                      <div class="modal-footer">
+                        <div class="form-check form-group">
+                          <label class="form-check-label" for="terminos"
+                            >Acepto los términos y condiciones del
+                            servicio.</label
+                          >
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="terminos"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 <!-- BUTTON -->
-                <button class="btn btn-primary" type="submit" id="regBtn">
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  id="regBtn"
+                  onclick="validate()"
+                >
                   Registrarme
                 </button>
               </div>
